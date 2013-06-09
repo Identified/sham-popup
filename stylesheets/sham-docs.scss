@@ -1,0 +1,151 @@
+// Handy conversion to em/percent/px/pt
+// Let's use ems for everything
+
+// PX    EM        Percent  PT
+// 6px   0.375em   37.5%    5pt
+// 7px   0.438em   43.8%    5pt
+// 8px   0.500em   50.0%    6pt
+// 9px   0.563em   56.3%    7pt
+// 10px  0.625em   62.5%    8pt
+// 11px  0.688em   68.8%    8pt
+// 12px  0.750em   75.0%    9pt
+// 13px  0.813em   81.3%    10pt
+// 14px  0.875em   87.5%    11pt
+// 15px  0.938em   93.8%    11pt
+// 16px  1.000em   100.0%   12pt
+// 17px  1.063em   106.3%   13pt
+// 18px  1.125em   112.5%   14pt
+// 19px  1.188em   118.8%   14pt
+// 20px  1.250em   125.0%   15pt
+// 21px  1.313em   131.3%   16pt
+// 22px  1.375em   137.5%   17pt
+// 23px  1.438em   143.8%   17pt
+// 24px  1.500em   150.0%   18pt
+
+// Mixins and variables
+$header-color : #cc6666;
+$blue         : #569aaa;
+$green        : #a3b57b;
+$purple       : #70535c;
+
+@mixin id-logo($color) {
+  background-image: url("data:image/svg+xml;utf8, <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='161.417px' height='34.697px' viewBox='0 0 161.417 34.697' enable-background='new 0 0 161.417 34.697' xml:space='preserve'><g><g><path fill='#{$color}' d='M32.261,24.734c0-3.086-1.234-5.992-4.684-5.992c-2.725,0.072-4.395,2.396-4.395,6.137 c0,3.668,1.815,6.285,4.395,6.285c1.162,0,2.288-0.438,3.123-1.273C31.825,28.766,32.261,27.35,32.261,24.734'/><path fill='#{$color}' d='M32.261,31.783c-0.976,1.459-2.096,2.357-3.219,2.852h3.219V31.783z'/><path fill='#{$color}' d='M7.312,30.473h2.07v-17.25H7.348V9.047h9.224v4.176H14.61v17.25h1.998v4.162h7.311 c-3.485-1.24-5.639-4.795-5.639-9.717c0-5.957,3.486-10.279,8.279-10.279c2.361,0,3.994,0.727,5.701,2.723v-5.738h-1.814V7.848 h6.56V0H0v34.635h7.312V30.473z'/></g><g><path fill='#{$color}' d='M55.134,27.867c-0.84,4.053-4.229,6.568-8.772,6.568c-5.242,0-9.087-4.088-9.087-9.82c0-5.66,3.88-9.854,9.121-9.854c2.971,0,5.592,1.396,7.199,3.809c1.713,2.619,1.783,5.102,1.854,6.988h-13.49 c0.455,4.857,3.635,5.104,4.509,5.104c1.852,0,3.075-0.873,3.81-2.795H55.134z M50.345,22.346 c-0.314-2.377-1.747-3.672-3.949-3.672c-2.025,0-3.599,1.363-4.193,3.672H50.345z'/><path fill='#{$color}' d='M74.741,30.818h1.712v3.633h-6.29v-12.51c0-1.746-1.014-2.797-2.76-2.797 c-2.238,0-4.195,2.236-4.195,4.754v6.92h1.713v3.633h-8.037v-3.633h1.746V19.391h-1.746v-3.635h6.324v2.375 c0.979-1.047,2.691-2.863,5.731-2.863c3.32,0,5.802,2.375,5.802,5.592V30.818z'/><path fill='#{$color}' d='M79.565,9.781h4.543v5.975h3.67v3.635h-3.67v9.645c0,1.328,0.699,1.957,2.201,1.957h1.469v3.459 c-1.084,0.176-2.027,0.246-2.832,0.246c-1.92,0-5.416,0-5.416-3.635V19.391h-2.307v-3.635h2.342V9.781z'/><path fill='#{$color}' d='M90.575,15.727h6.359v15.062h1.573v3.635h-8.003v-3.635h1.853V19.361h-1.782V15.727z M91.938,8.703h5.032 v4.402h-5.032V8.703z'/><path fill='#{$color}' d='M102.911,12.406c0-2.201,0.525-3.912,5.104-3.912c1.188,0,2.061,0.068,3.004,0.209v3.635 c-0.209,0.035-1.223-0.07-1.467-0.07c-2.133,0-2.133,1.117-2.096,3.459h11.637v15.062h1.781v3.635h-8.143v-3.635h1.782V19.361 h-7.024v11.428h1.852v3.635h-8.246v-3.635h1.816V19.361h-2.551v-3.635h2.551V12.406z M113.956,8.703h5.137v4.369h-5.137V8.703z'/><path fill='#{$color}' d='M139.503,27.838c-0.839,4.053-4.229,6.568-8.771,6.568c-5.242,0-9.086-4.088-9.086-9.818 c0-5.662,3.879-9.855,9.12-9.855c2.972,0,5.593,1.398,7.2,3.809c1.712,2.621,1.781,5.102,1.852,6.99h-13.489 c0.454,4.857,3.635,5.102,4.509,5.102c1.852,0,3.074-0.873,3.809-2.795H139.503z M134.715,22.316 c-0.313-2.377-1.747-3.67-3.949-3.67c-2.025,0-3.599,1.363-4.192,3.67H134.715z'/><path fill='#{$color}' d='M153.379,8.186h6.325v22.617h1.713v3.633h-6.291v-2.557c-1.783,1.711-3.529,2.551-5.242,2.551 c-4.963,0-8.213-3.879-8.213-9.82c0-5.73,3.355-9.891,7.968-9.891c2.272,0,3.845,0.699,5.487,2.621v-5.521h-1.747V8.186z M146.39,24.574c0,3.529,1.746,6.047,4.228,6.047c1.119,0,2.202-0.42,3.005-1.225c1.084-1.082,1.504-2.447,1.504-4.961 c0-2.971-1.188-5.768-4.509-5.768C147.996,18.738,146.39,20.975,146.39,24.574'/></g></g></svg>");
+}
+
+// Page styles
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+hr {
+  @extend %clearfix;
+  border : none;
+  width  : 100%;
+}
+
+a, a:link {
+  color : $blue;
+
+  &:visited {
+    color : $purple;
+  }
+  &:active {
+    color : $green;
+  }
+}
+
+p {
+  font : 1em/1.25em 'SourceSansProLight', Arial, sans-serif;
+}
+
+h1 {
+  font           : 3.75em/1.25em 'SourceSansProSemibold', Arial, sans-serif;
+  letter-spacing : 0;
+  a,a:link, a:active, a:visited {
+    color           : white;
+    text-decoration : none;
+  }
+}
+
+pre {
+  font             : 0.813em/1em 'SourceCodeProLight', Arial, sans-serif;
+  background-color : #f3f3ec;
+  padding          : 10px;
+}
+
+h3 {
+  font : 1em/1.3em 'SourceSansProSemibold', Arial, sans-serif;
+}
+
+// Layout
+#wrapper {
+  padding : 20px;
+}
+
+header {
+  background-color : $header-color;
+  color            : white;
+  padding          : 120px 40px;
+
+  p {
+  font : 1.2em/2em 'SourceSansProRegular', Arial, sans-serif;
+  }
+}
+
+section {
+  padding : 40px;
+  >div {
+    padding : 20px;
+  }
+}
+
+footer {
+  background-color : #e9e9e9;
+  color            : #555;
+  padding          : 40px;
+  p {
+    font-family : 'SourceSansProRegular', Arial, sans-serif;
+  }
+
+  #id-logo {
+    @include id-logo($header-color);
+    background-size : 170px;
+    display         : block;
+    float           : right;
+    height          : 36px;
+    margin-top      : 60px;
+    width           : 170px;
+    @media (max-width: 30em) {
+      float : none;
+    }
+  }
+}
+
+.grid-half {
+  @include grid-col;
+  @media (min-width: 40em) {
+      @include grid-col("one half");
+  }
+}
+
+.grid-third {
+  @include grid-col;
+  @media (min-width: 40em) {
+    @include grid-col("one half");
+    &:nth-child(3) {
+      clear: both;
+    }
+  }
+
+  @media (min-width: 60em) {
+    @include grid-col("one third");
+    &:nth-child(3) {
+      clear: none;
+    }
+  }
+
+}
