@@ -1,3 +1,22 @@
-// CSS Needed for demos here
-// Put page styling elsewhere
+@import "popup.scss";
+
+html,body {
+	height: 100%;
+}
+
+.popout-wrapper {
+	height: 300px;
+	width: 300px;
+	background-color: blue;
+	position: relative;
+	float: left;
+	margin: 1em;
+
+}
+
+.popout {
+	@include popout('#fffbdd', '#eeee7e');
+	width: 500px;
+}
+
 
