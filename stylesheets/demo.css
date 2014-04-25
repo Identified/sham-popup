@@ -1,39 +1,161 @@
 html, body {
-  height: 100%; }
+  height: 100%;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
 
-.popout-wrapper {
+.popup-wrapper {
   height: 300px;
   width: 300px;
-  background-color: blue;
+  background-color: #e1e1e1;
   position: relative;
   float: left;
   margin: 1em; }
+  .popup-wrapper:hover .foo, .popup-wrapper:hover .bar, .popup-wrapper:hover .baz, .popup-wrapper:hover .qux {
+    display: block; }
 
-.popout {
-  background: #fffbdd;
-  border: 1px solid #eeee7e;
+.foo {
+  background: #ffcec1;
+  border: 1px solid #ff6466;
   border-radius: 4px;
   box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.07);
-  margin-top: 16px;
+  max-width: auto;
+  min-width: auto;
   padding: 12px;
   position: absolute;
   z-index: 9999;
+  bottom: auto;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  max-width: auto;
+  min-width: auto;
+  right: 0;
   top: 100%;
-  width: 500px; }
-  .popout:before, .popout:after {
+  display: none; }
+  .foo:before, .foo:after {
     border-style: solid;
     content: " ";
     position: absolute;
     width: 0px; }
-  .popout:before, .popout:after {
+  .foo:before, .foo:after {
     border-width: 0 10px 12px 10px;
     left: 0;
     margin-left: auto;
     margin-right: auto;
     right: 0; }
-  .popout:before {
-    border-color: transparent transparent #eeee7e transparent;
+  .foo:before {
+    border-color: transparent transparent #ff6466 transparent;
     top: -12px; }
-  .popout:after {
-    border-color: transparent transparent #fffbdd transparent;
+  .foo:after {
+    border-color: transparent transparent #ffcec1 transparent;
     top: -11px; }
+
+.bar {
+  background: #fffbdd;
+  border: 1px solid #eeee7e;
+  border-radius: 4px;
+  box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.07);
+  max-width: auto;
+  min-width: auto;
+  padding: 12px;
+  position: absolute;
+  z-index: 9999;
+  bottom: 100%;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+  max-width: auto;
+  min-width: auto;
+  right: 0;
+  top: auto;
+  display: none; }
+  .bar:before, .bar:after {
+    border-style: solid;
+    content: " ";
+    position: absolute;
+    width: 0px; }
+  .bar:before, .bar:after {
+    border-width: 12px 10px 0 10px;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0; }
+  .bar:before {
+    border-color: #eeee7e transparent transparent transparent;
+    bottom: -12px; }
+  .bar:after {
+    border-color: #fffbdd transparent transparent transparent;
+    bottom: -11px; }
+
+.baz {
+  background: black;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.07);
+  max-width: auto;
+  min-width: auto;
+  padding: 12px;
+  position: absolute;
+  z-index: 9999;
+  bottom: auto;
+  left: 100%;
+  margin-bottom: auto;
+  margin-left: 16px;
+  margin-right: auto;
+  max-width: auto;
+  min-width: auto;
+  right: -100%;
+  top: auto;
+  display: none;
+  color: white; }
+  .baz:before, .baz:after {
+    border-style: solid;
+    content: " ";
+    position: absolute;
+    width: 0px; }
+  .baz:before, .baz:after {
+    border-width: 10px 12px 10px 0;
+    right: auto;
+    top: 14px; }
+  .baz:before {
+    border-color: transparent transparent transparent transparent;
+    left: -12px; }
+  .baz:after {
+    border-color: transparent black transparent transparent;
+    left: -11px; }
+
+.qux {
+  background: #d0eaff;
+  border: 1px solid #5b83ff;
+  border-radius: 4px;
+  box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.07);
+  max-width: auto;
+  min-width: auto;
+  padding: 12px;
+  position: absolute;
+  z-index: 9999;
+  bottom: auto;
+  left: -100%;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 16px;
+  max-width: auto;
+  min-width: auto;
+  right: 100%;
+  top: auto;
+  display: none; }
+  .qux:before, .qux:after {
+    border-style: solid;
+    content: " ";
+    position: absolute;
+    width: 0px; }
+  .qux:before, .qux:after {
+    border-width: 10px 0 10px 12px;
+    top: 14px; }
+  .qux:before {
+    border-color: transparent transparent transparent #5b83ff;
+    right: -12px; }
+  .qux:after {
+    border-color: transparent transparent transparent #d0eaff;
+    right: -11px; }

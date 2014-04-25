@@ -5,22 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>@sham-popup demo</title>
     <link rel="stylesheet" href="stylesheets/demo.css">
-    <script>window.jQuery || document.write('<script src="javascripts/jquery-1.11.0.min.js"><\/script>')</script>
 
     <script src="javascripts/tipbox.js"></script>
   </head>
   <body>
-    <div class="popout-wrapper">
-      <div class="popout">
-        this is a test
+    <div class="description">
+      <p>Mixins for simple (bordered!) popups.</p>
+      <ul>
+        <li>Top, Bottom, Left, and Right.</li>
+        <li>Include the popup.scss file and include the mixin with optional parameters in your SCSS/SASS file like so: <em>@include popout-bottom('FILL COLOR', 'BORDER COLOR', 'MIN-WIDTH','MAX-WIDTH');</em></li>
+
+        <li>Use javascript or media queries to move them around more dynamically.</li>
+        <li>Or simple simple CSS :hover/:active psuedo classes to show them.</li>
+        <li>The world is your oyster.</li>
+      </ul>
+
+    </div>
+    <div class="popup-wrapper">
+      <div class="foo">
+        This is a red popup, appearing on the bottom.
       </div>
     </div>
 
-    <div class="popout-wrapper">
-      <div class="popout">
-        this is a test
+    <div class="popup-wrapper">
+      <div class="qux">
+        This is a blue popup, appearing on the right.
       </div>
     </div>
+
+    <div class="popup-wrapper">
+      <div class="bar">
+        This is a yellow (default) popup, appearing on the top.
+      </div>
+    </div>
+
+
+    <div class="popup-wrapper">
+      <div class="baz">
+        This is a black popup, appearing on the left.
+      </div>
+    </div>
+
+
+
+
+
   </body>
 </html>
 
